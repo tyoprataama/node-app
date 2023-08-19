@@ -14,4 +14,3 @@ fs.readFile('./txt/dummy.txt', 'utf-8', (err, data1) => {
   })
 });
 console.log('Reading File');
-
