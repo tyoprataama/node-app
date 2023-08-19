@@ -1,20 +1,9 @@
 const http = require('http');
 const url = require('url');
 
-
-/// ROUTING
-
+/// SERVER
 const server = http.createServer((req, res) => {
-  const pathName = req.url
-  if (pathName === '/') {
-    res.end('This is from HOME');
-  } else if (pathName === '/overview') {
-    res.end('This is from the OVERVIEW');
-  } else if (pathName === '/product') {
-    res.end('This is from the PRODUCT');
-  } else {
-    res.end('404 Page Not Found!');
-  }
+  res.end('Halo from the server');
 })
 
 const port = 8000
