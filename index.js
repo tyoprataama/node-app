@@ -1,16 +1,23 @@
-const fs = require('fs');
+const http = require('http');
+const url = require('url');
 
-//////////////////////////////////
-///// FS
 
-// Synchronous way
-const input = fs.readFileSync('./txt/dummy.txt');
-console.log(input);
+/// ROUTING
 
-// Asynchronous way
-fs.readFile('./txt/dummy.txt', 'utf-8', (err, data1) => {
-  fs.readFile(`./txt/${data1}.txt`, 'utf-8', (err, data2) => {
-    console.log(data2);
-  })
-});
-console.log('Reading File');
+const server = http.createServer((req, res) => {
+  const pathName = req.url
+  if (pathName === '/') {
+    res.end('This is from HOME');
+  } else if (pathName === '/overview') {
+    res.end('This is from the OVERVIEW');
+  } else if (pathName === '/product') {
+    res.end('This is from the PRODUCT');
+  } else {
+    res.end('404 Page Not Found!');
+  }
+})
+
+const port = 8000
+server.listen(port, '127.0.0.1', () => {
+  console.log(`Listening port ${port}`);
+})
