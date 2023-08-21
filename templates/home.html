@@ -10,7 +10,208 @@
   <link rel="icon"
     href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png" />
   <title>NODE FARM</title>
-  <link rel="stylesheet" href="./styling/home.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    html {
+      font-size: 62.5%;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 5rem 5rem 10rem;
+      line-height: 1.7;
+      font-family: 'Inter', sans-serif;
+      color: #555;
+      min-height: 100vh;
+      background: #d1f0fc;
+    }
+
+    h1 {
+      font-size: 4rem;
+      /* Adjust font size for smaller screens */
+      color: #000;
+      text-align: center;
+      position: relative;
+      word-spacing: 2px;
+      /* Reduce word spacing for better readability */
+      margin: 2rem 0;
+      /* Add some vertical margin for spacing */
+    }
+
+
+
+    /* Add a media query for smaller screens */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+        /* Further reduce font size for smaller screens */
+        word-spacing: 1px;
+        /* Adjust word spacing */
+      }
+
+      .card__title-box {
+        width: 100%;
+      }
+
+      .card__detail--organic {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1rem;
+        background-image: linear-gradient(to right, #9be15d, #00e3ae);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+    }
+
+    .container {
+      max-width: 95rem;
+      margin: 0 auto;
+      padding: 0 2rem;
+      /* Add padding for better spacing on smaller screens */
+    }
+
+    .cards-container {
+      margin-top: 4rem;
+      /* Adjust spacing */
+    }
+
+    .card {
+      background: white;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+      /* Reduce shadow for smaller screens */
+      border-radius: 10px;
+      margin-bottom: 3rem;
+      /* Adjust spacing */
+      display: flex;
+      flex-direction: column;
+      /* Stack details vertically on smaller screens */
+      transition: all 0.5s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      /* Slightly reduce the scaling effect */
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+      /* Adjust shadow */
+      cursor: pointer;
+    }
+
+    .card__emoji {
+      font-size: 4rem;
+      /* Reduce emoji size */
+      padding: 1rem 2rem 0.5rem 1rem;
+      /* Adjust padding */
+      letter-spacing: -2rem;
+      /* Reduce letter spacing */
+      align-self: center;
+    }
+
+    .card__title-box {
+      background: #108cff;
+      margin-right: auto;
+      padding: 0 2rem;
+      /* Adjust padding */
+      text-align: center;
+      /* Center align title */
+    }
+
+    .card__title {
+      color: white;
+      font-size: 2.5rem;
+      /* Adjust font size */
+    }
+
+    .card__details {
+      display: flex;
+      flex-wrap: wrap;
+      /* Allow details to wrap on smaller screens */
+      justify-content: center;
+      /* Center align details */
+    }
+
+    .card__detail-box {
+      flex: 1;
+      /* Make detail boxes equally spaced */
+      border-right: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Center align details */
+      padding: 1rem;
+      /* Adjust padding */
+    }
+
+    .card__detail-box:last-child {
+      border: none;
+    }
+
+    .card__detail {
+      font-weight: 400;
+      font-size: 1.5rem;
+      /* Adjust font size */
+      text-align: center;
+      /* Center align details */
+    }
+
+    .card__detail--organic {
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 1.9rem;
+      background-image: linear-gradient(to right, #9be15d, #00e3ae);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .card__detail--price {
+      font-weight: 700;
+      font-size: 1.6rem;
+      /* Adjust font size */
+    }
+
+    .card__link {
+      flex: 1;
+      border-radius: 0px 0px 10px 10px;
+      background-color: #4b4ef9;
+      color: white;
+      font-size: 1.4rem;
+      /* Adjust font size */
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.5rem 0;
+      /* Adjust padding */
+      text-align: center;
+      transition: background-color 0.3s;
+      /* Simplify transition */
+    }
+
+    .card__link:hover,
+    .card__link:active {
+      background-color: #5f61fd;
+    }
+
+    .emoji-left,
+    .emoji-right {
+      font-size: 1.5rem;
+      /* Adjust font size */
+      margin: 0.5rem;
+      /* Adjust margin */
+    }
+
+    .not-organic {
+      display: none;
+    }
+  </style>
 
 </head>
 
@@ -19,9 +220,9 @@
     <h1>🌽 Node Farm 🥦</h1>
 
     <div class="cards-container">
-      {PRODUCT_CARDS}
+      {%PRODUCT_CARDS%}
 
-     
+
     </div>
   </div>
 </body>
