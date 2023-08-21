@@ -9,7 +9,7 @@ const fs = require('fs');
 /// ROUTING
 const server = http.createServer((req, res) => {
   const pathName = req.url
-  if (pathName === '/') {
+  if (pathName === '/' || pathName === '/home') {
     res.end('This is from HOME');
   } else if (pathName === '/overview') {
     res.end('This is from the OVERVIEW');
