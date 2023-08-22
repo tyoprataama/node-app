@@ -24,7 +24,6 @@ const replaceTemp = (temp, product) => {
 
 }
 
-// const data = fs.readFileSync(`${__dirname}/data/data.json`, 'utf-8');
 
 /// ROUTING
 const server = http.createServer((req, res) => {
