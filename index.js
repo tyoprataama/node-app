@@ -27,9 +27,9 @@ const replaceTemp = (temp, product) => {
 
 /// ROUTING
 const server = http.createServer((req, res) => {
-  const pathName = req.url;
+  const {query, pathname} = url.parse(req.url, true)
   //  Home Page
-  if (pathName === '/' || pathName === '/home') {
+  if (pathname === '/' || pathname === '/home') {
     res.writeHead(200, {
       'Content-type': 'text/html'
     })
@@ -38,11 +38,13 @@ const server = http.createServer((req, res) => {
     const output = tempHome.replace('{%PRODUCT_CARDS%}', cardElm);
 
     res.end(output);
-  } else if (pathName === '/product') {
+  } else if (pathname === '/product') {
     res.writeHead(200, {
       'Content-type': 'text/html'
     })
-    res.end(tempProduct);
+    const product = dataObj[query.id];
+    const output = replaceTemp(tempProduct, product);
+    res.end(output);
   } else {
     res.end('404 Page Not Found!');
   }
